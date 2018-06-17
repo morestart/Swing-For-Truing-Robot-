@@ -9,7 +9,7 @@ import java.util.UUID;
 
 class Message {
     private String content;
-    private String code;
+//    private String code;
 
     void Run(String info) throws Exception {
         OkHttpClient client = new OkHttpClient();
@@ -39,7 +39,7 @@ class Message {
         JsonObject object = parser.parse(s).getAsJsonObject();
         /* System.out.println(object.get("text")); */
         content = object.getAsJsonObject().get("text").getAsString();
-        code = object.getAsJsonObject().get("code").getAsString();
+//        code = object.getAsJsonObject().get("code").getAsString();
         /*
         System.out.println(code);
         System.out.println(content);
@@ -50,9 +50,9 @@ class Message {
         return content;
     }
 
-    String getCode() {
-        return code;
-    }
+//    String getCode() {
+//        return code;
+//    }
 //
 //    String getS() {
 //        return s;

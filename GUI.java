@@ -58,9 +58,9 @@ public class GUI {
             Runnable r = () -> {
                 Message msg = new Message();
                 try {
-                    text.setText("");
-                    msg.Run(text.getText());
                     displayContent.append("你:" + text.getText() + "\n");
+                    msg.Run(text.getText());
+                    text.setText("");
                     displayContent.append("叮咚:" + msg.getContent() + "\n");
                     //                    System.out.println(msg.getContent());
                 } catch (Exception e1) {
@@ -78,9 +78,9 @@ public class GUI {
             Runnable r1 = () -> {
                 Message msg = new Message();
                 try {
-                    text.setText("");
-                    msg.Run(text.getText());
                     displayContent.append("你:" + text.getText() + "\n");
+                    msg.Run(text.getText());
+                    text.setText("");
                     displayContent.append("叮咚:" + msg.getContent() + "\n");
                     //                    System.out.println(msg.getContent());
                 } catch (Exception e1) {

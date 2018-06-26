@@ -1,9 +1,17 @@
 package CourseProject;
 
-import javax.swing.*;
-import java.awt.*;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
-public class GUI {
+import javax.swing.*;
+import java.applet.Applet;
+import java.applet.AudioClip;
+import java.awt.*;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+public class GUI extends Applet {
 
     public static void main(String[] args) {
         GUI ui = new GUI();
@@ -46,7 +54,7 @@ public class GUI {
         displayContent.setEnabled(false);
 
         /* lambda */
-        Icon aboutIcon = new ImageIcon("/Users/cattree/IdeaProjects/Develop/src/CourseProject/pic/cat.png");
+        Icon aboutIcon = new ImageIcon("/Users/cattree/IdeaProjects/Course Project/src/CourseProject/pic/cat.png");
 
         about.addActionListener(e -> JOptionPane.showMessageDialog(null,
                 "Auther: CTL\nLincese: MIT\n" +
@@ -59,13 +67,27 @@ public class GUI {
                 Message msg = new Message();
                 try {
                     displayContent.append("你:" + text.getText() + "\n");
-                    msg.Run(text.getText());
+                    String t = text.getText();
                     text.setText("");
+                    msg.Run(t);
+                    FileInputStream fileau= null;
+                    try {
+                        fileau = new FileInputStream("/Users/cattree/IdeaProjects/Course Project/src/CourseProject/audio/send.au");
+                    } catch (FileNotFoundException e1) {
+                        e1.printStackTrace();
+                    }
+                    try {
+                        AudioStream as=new AudioStream(fileau);
+                        AudioPlayer.player.start(as);
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                    }
+
                     displayContent.append("叮咚:" + msg.getContent() + "\n");
                     //                    System.out.println(msg.getContent());
                 } catch (Exception e1) {
 //                    e1.printStackTrace();
-                    Icon errorIcon = new ImageIcon("/Users/cattree/IdeaProjects/Develop/src/CourseProject/pic/error.png");
+                    Icon errorIcon = new ImageIcon("/Users/cattree/IdeaProjects/Course Project/src/CourseProject/pic/error.pngng");
                     JOptionPane.showMessageDialog(null, "当前无网络,请稍后重试!",
                             "ERROR", JOptionPane.ERROR_MESSAGE, errorIcon);
                 }
@@ -79,14 +101,30 @@ public class GUI {
                 Message msg = new Message();
                 try {
                     displayContent.append("你:" + text.getText() + "\n");
-                    msg.Run(text.getText());
+                    String t = text.getText();
                     text.setText("");
+                    msg.Run(t);
+
+                    FileInputStream fileau= null;
+                    try {
+                        fileau = new FileInputStream("/Users/cattree/IdeaProjects/Course Project/src/CourseProject/audio/send.au");
+                    } catch (FileNotFoundException e2) {
+                        e2.printStackTrace();
+                    }
+                    try {
+                        AudioStream as=new AudioStream(fileau);
+                        AudioPlayer.player.start(as);
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+
                     displayContent.append("叮咚:" + msg.getContent() + "\n");
                     //                    System.out.println(msg.getContent());
                 } catch (Exception e1) {
                     Icon errorIcon = new ImageIcon("CourseProject/pic/text.png");
                     JOptionPane.showMessageDialog(null, "当前无网络,请稍后重试!",
                             "ERROR", JOptionPane.ERROR_MESSAGE, errorIcon);
+                    displayContent.append(" ");
                 }
             };
             Thread t1 = new Thread(r1);

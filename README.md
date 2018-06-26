@@ -3,3 +3,10 @@
 GUI主要是做监听任务以及界面绘制
 
 Message文件主要功能为返回数据
+
+依赖的jar包如下：
+
+- okhttp
+- okio
+- gson
+

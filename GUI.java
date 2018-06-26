@@ -4,14 +4,12 @@ import sun.audio.AudioPlayer;
 import sun.audio.AudioStream;
 
 import javax.swing.*;
-import java.applet.Applet;
-import java.applet.AudioClip;
 import java.awt.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class GUI extends Applet {
+public class GUI {
 
     public static void main(String[] args) {
         GUI ui = new GUI();
@@ -70,14 +68,15 @@ public class GUI extends Applet {
                     String t = text.getText();
                     text.setText("");
                     msg.Run(t);
-                    FileInputStream fileau= null;
+                    FileInputStream fileau = null;
                     try {
                         fileau = new FileInputStream("/Users/cattree/IdeaProjects/Course Project/src/CourseProject/audio/send.au");
                     } catch (FileNotFoundException e1) {
                         e1.printStackTrace();
                     }
                     try {
-                        AudioStream as=new AudioStream(fileau);
+                        assert fileau != null;
+                        AudioStream as = new AudioStream(fileau);
                         AudioPlayer.player.start(as);
                     } catch (IOException e2) {
                         e2.printStackTrace();
@@ -105,14 +104,15 @@ public class GUI extends Applet {
                     text.setText("");
                     msg.Run(t);
 
-                    FileInputStream fileau= null;
+                    FileInputStream fileau = null;
                     try {
                         fileau = new FileInputStream("/Users/cattree/IdeaProjects/Course Project/src/CourseProject/audio/send.au");
                     } catch (FileNotFoundException e2) {
                         e2.printStackTrace();
                     }
                     try {
-                        AudioStream as=new AudioStream(fileau);
+                        assert fileau != null;
+                        AudioStream as = new AudioStream(fileau);
                         AudioPlayer.player.start(as);
                     } catch (IOException e1) {
                         e1.printStackTrace();

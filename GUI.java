@@ -134,7 +134,6 @@ public class GUI {
         mainFrame.add(jPanel2, BorderLayout.NORTH);
         mainFrame.add(jPanel1, BorderLayout.SOUTH);
         mainFrame.setVisible(true);
+        mainFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 }
-
-

@@ -47,6 +47,7 @@ public class GUI {
         JScrollPane jsp = new JScrollPane(displayContent);
         jsp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         jPanel2.add(jsp);
+        displayContent.setLineWrap(true);
         displayContent.setWrapStyleWord(true);
         displayContent.setLineWrap(true);
         displayContent.setEnabled(false);
@@ -83,7 +84,6 @@ public class GUI {
                     }
 
                     displayContent.append("叮咚:" + msg.getContent() + "\n");
-                    //                    System.out.println(msg.getContent());
                 } catch (Exception e1) {
 //                    e1.printStackTrace();
                     Icon errorIcon = new ImageIcon("/Users/cattree/IdeaProjects/Course Project/src/CourseProject/pic/error.pngng");
